@@ -50,37 +50,40 @@ console.log(min([-12,-34,0,-56,-1]));
 the list and checks that the current name is in the string passed in. The output should be:
 "Matched dog_name" if name is in the string, if no matches are present console.log "No Matches"
 */
-// let dog_string = ["Hello Max, my name is Dog, and I have purple eyes!"]
-// let dog_names = ["Max","HAS","PuRple","dog"]
+let dog_string = ["Hello Max, my name is Dog, and I have purple eyes!"]
+let dog_names = ["Max","HAS","PuRple","dog"]
 
-function findWords(){
-let a = false;
-for(let i = 0; i < dog_names.length; i++) {
-  if (dog_string.search(dog_names[i]) !== -1) {
-    a = true;
-    return ("matched " + dog_names[i])
+
+
+function findWords(list, string) {
+    for(let i = 0; i < list.length; i++){
+        if (string.includes(list[i])) {
+            console.log('Matched dog_name')
+        } else {
+            console.log('No matches')
+        }
+        
     }
 }
-  if (a == false){
-    return("No Matches");
-  }
-}
 
-console.log(findWords())
-
+findWords(dog_names, dog_string)
 
 /*Write a fucntion that takes in an array and removes every even index with a splice,
 and replaces it with the string "even index" */
 
-let arr = ["Max","Baseball","Reboot","Goku","Trucks","Rodger"]
-function getName(arr) {
-     for(let i = 0; i < arr.length; i++){
-         console.log(arr[i])
- }
-}
-console.log(arr([0,2,4],1,'even index'))
+let groupOfNames = ["Max","Baseball","Reboot","Goku","Trucks","Rodger"]
 
-// console.log(getName)
+function replaceEvens(arr){
+    for(let i = 0; i < arr.length; i++){
+        if (i % 2 == 0) {
+            arr.splice (i, 1, "even index")
+        }
+    }
+    console.log(arr)
+}
+
+replaceEvens(["Max","Baseball","Reboot","Goku","Trucks","Rodger"])
+
 //Expected output
 //Given arr == ["Max","Baseball","Reboot","Goku","Trucks","Rodger"]
 //Output arr == ["even index","Baseball","even index","Goku","even index","Rodger"]
